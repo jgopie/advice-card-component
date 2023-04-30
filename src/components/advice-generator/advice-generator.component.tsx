@@ -25,6 +25,12 @@ export const AdviceGenerator = () => {
         }
     }, []);
 
+    const newAdvice = () => {
+        fetch("https://api.adviceslip.com/advice")
+        .then(response => response.json())
+        .then(data => setData(data));
+    }
+
     return (
         <div className="main-body flex">
             <div className="content-container flex">
@@ -33,7 +39,7 @@ export const AdviceGenerator = () => {
             </div>
             <div className="image-container flex">
                 <img className="divider" src={displayImage}/>
-                <img className="dice" src={diceIcon}/>
+                <img className="dice" src={diceIcon} onClick={newAdvice}/>
             </div>
         </div>
     );
